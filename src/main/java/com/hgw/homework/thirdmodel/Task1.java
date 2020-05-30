@@ -5,6 +5,8 @@ import java.util.Scanner;
 /**
  * 编程统计字符串"ABCD123!@#$%ab"中大写字母、小写字母、数字、其它字符的个数并打印出来。
  *
+ * charAt() 一维数组 Character类中判断的方法
+ *
  * @author 追风同学
  * @date 2020/05/21 8:47
  * @description

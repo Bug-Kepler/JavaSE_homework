@@ -54,30 +54,58 @@ public class Task5 {
                 index++;
             }
         }
+        System.out.println("牌");
+        Set<Integer> pokerKey = poker.keySet();
+        for (Integer integer : pokerKey) {
+            System.out.println(poker.get(integer));
+        }
         //洗牌
         Collections.shuffle(pokerIndex);
+
+        for (int i = 0; i < pokerIndex.size(); i++) {
+            System.out.println(pokerIndex.get(i));
+        }
         //发牌
         //定义四个集合,存储玩家的牌的索引和底牌的索引
         ArrayList<Integer> player01 = new ArrayList<>();
         ArrayList<Integer> player02 = new ArrayList<>();
         ArrayList<Integer> player03 = new ArrayList<>();
         ArrayList<Integer> dipai = new ArrayList<>();
+
+        /**
+         * 添加牌的临时变量
+         */
+        Integer temp =Integer.valueOf(0);
+
         for (int i = 0; i < pokerIndex.size(); i++) {
+            temp = pokerIndex.get(i);
             if (i >= 51) {
-                dipai.add(i);
+                dipai.add(temp);
             } else if (i % 3 == 0) {
-                player01.add(i);
+                player01.add(temp);
             } else if (i % 3 == 1) {
-                player02.add(i);
+                player02.add(temp);
             } else if (i % 3 == 2){
-                player03.add(i);
+                player03.add(temp);
             }
         }
+        System.out.println("----排序前----");
+        //排序前的牌组
+        System.out.println(Arrays.toString(player01.toArray()));
+        System.out.println(Arrays.toString(player02.toArray()));
+        System.out.println(Arrays.toString(player03.toArray()));
+
         //给牌按照从大到小的顺序排序
         Collections.sort(player01);
         Collections.sort(player02);
         Collections.sort(player03);
         Collections.sort(dipai);
+
+        System.out.println("---排序后---");
+        System.out.println(Arrays.toString(player01.toArray()));
+        System.out.println(Arrays.toString(player02.toArray()));
+        System.out.println(Arrays.toString(player03.toArray()));
+
         //看牌
         lookPoker("玩家1",poker,player01);
         lookPoker("玩家2",poker,player02);
